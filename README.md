@@ -13,3 +13,7 @@ The VM will automatically connect to the Tailscale wireguard VPN - make sure you
 | VNC_PASSWORD        | password needed to login remotely                                             |
 | VNC_USER_PASSWORD   | password for the local admin account                                          |
 | TAILSCALE_TOKEN     | Tailscale authentication key                                                  |
+
+## HowTo
+
+Start the workflow & connect!
