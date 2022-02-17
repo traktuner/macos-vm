@@ -1,0 +1,22 @@
+name: mac
+on: 
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: macos-10.15
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setting the environment up.
+      env:
+        TAILSCALE_TOKEN: ${{ secrets.TAILSCALE_TOKEN }}
+        VNC_USER_PASSWORD: ${{ secrets.VNC_USER_PASSWORD }}
+        VNC_PASSWORD: ${{ secrets.VNC_PASSWORD }}
+        VNC_USER: ${{ secrets.VNC_USER }}
+      run: source init.sh "$VNC_USER" "$VNC_PASSWORD" "$VNC_USER_PASSWORD" "$TAILSCALE_TOKEN"
+#keep session running
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v2
